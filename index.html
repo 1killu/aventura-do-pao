@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura do Pão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Cor de fundo padrão */
+            color: #181818;
+            text-align: center;
+            padding: 20px;
+        }
+        #story {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid #ddd;
+            width: 80%;
+            max-width: 600px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #736a45;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #866e3c;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="story">
+    <h1>Aventura do Pão</h1>
+    <img id="story-image" src="pao.jpeg" alt="Pão no início da aventura">
+    <p id="text">
+        Na padaria Caiano nasceu um pão, a última fatia do pão de forma, cujo ninguém gosta. Ele viu seus amigos sendo levados pelo padeiro e jurou vingança. Ajude o pão de forma a vingar seus amigos!
+        <br><br>
+        Ao levantar da cesta de pães, ele encontra dois corredores: o dos frios e o das bebidas. Em cada corredor um oponente, qual deseja enfrentar?
+    </p>
+    <div id="choices">
+        <button onclick="escolha1()">Enfrentar Presunto</button>
+        <button onclick="escolha2()">Enfrentar Copo de leite</button>
+    </div>
+</div>
+
+<script>
+    function escolha1() {
+        document.getElementById('story-image').src = "mortandela.jpeg";
+        document.getElementById('story-image').alt = "Presunto";
+
+        document.getElementById('text').innerHTML = `
+            Pão avança para enfrentar o presunto. O pedaço de carne, com seu corpo molhado, o ataca com uma embalagem de papel. Pão desvia habilmente e luta bravamente, usando sua experiência como pão.
+            <br><br>
+            Com um golpe rápido, ele derrota o presunto. No entanto, ele descobre uma mensagem entre os pedaços de carne que diz: "O verdadeiro guardião do tesouro não é quem parece ser."
+            <br><br>
+            Pão agora deve decidir: seguir adiante ou investigar a mensagem.
+        `;
+
+        // Atualiza as opções removendo as anteriores
+        document.getElementById('choices').innerHTML = `
+            <button onclick="seguirAdiante()">Seguir adiante</button>
+            <button onclick="investigarMensagem()">Investigar a mensagem</button>
+        `;
+    }
+
+    function escolha2() {
+        document.getElementById('story-image').src = "leite.jpeg";
+        document.getElementById('story-image').alt = "Copo de Leite";
+
+        document.getElementById('text').innerHTML = `
+            Pão decide enfrentar o copo de leite. Uma batalha épica se inicia.
+            <br><br>
+            Apesar da força brutal do copo de leite, Pão usa sua agilidade e inteligência para sobrepujá-la, derrubando-a em um golpe decisivo. Copo de leite cai no chão, e seu corpo desagua em leite.
+            <br><br>
+            Agora, Pão está diante da porta do tesouro, mas sente que algo está errado. Ele pode abrir a porta ou explorar os arredores.
+        `;
+
+        // Atualiza as opções removendo as anteriores
+        document.getElementById('choices').innerHTML = `
+            <button onclick="abrirPorta()">Abrir a porta</button>
+            <button onclick="explorarArredores()">Explorar os arredores</button>
+        `;
+    }
+
+    function seguirAdiante() {
+        document.getElementById('text').innerHTML = `
+            Pão ignora a mensagem e segue em frente. Ao chegar ao local indicado, ele encontra um cofre brilhante, mas ao abri-lo, uma maldição é lançada sobre ele.
+            <br><br>
+            <strong>Fim: Pão foi amaldiçoado por ignorar o aviso e agora está preso de baixo do galpão.</strong>
+        `;
+
+        // Atualiza as opções para incluir o botão de recomeçar
+        document.getElementById('choices').innerHTML = `<button onclick="recomecar()">Recomeçar</button>`;
+    }
+
+    function investigarMensagem() {
+        document.getElementById('text').innerHTML = `
+            Pão decide investigar a mensagem e descobre uma passagem secreta atrás de uma prateleira. Ao segui-la, encontra um mapa que revela o verdadeiro tesouro escondido longe dos inimigos.
+            <br><br>
+            <strong>Fim: Pão encontrou um facão e cujo usa para exterminar o padeiro.</strong>
+        `;
+
+        // Atualiza as opções para incluir o botão de recomeçar
+        document.getElementById('choices').innerHTML = `<button onclick="recomecar()">Recomeçar</button>`;
+    }
+
+    function abrirPorta() {
+        document.getElementById('text').innerHTML = `
+            Pão abre a porta do tesouro e encontra muitas facas. Porém, assim que toca em uma, o espírito do copo de leite reaparece e prende Pão para sempre.
+            <br><br>
+            <strong>Fim: Pão caiu na armadilha do copo de leite e ficou preso para sempre.</strong>
+        `;
+
+        // Atualiza as opções para incluir o botão de recomeçar
+        document.getElementById('choices').innerHTML = `<button onclick="recomecar()">Recomeçar</button>`;
+    }
+
+    function explorarArredores() {
+        document.getElementById('text').innerHTML = `
+            Pão decide explorar os arredores e encontra um facão capaz de derrotar qualquer inimigo.
+            <br><br>
+            <strong>Fim: Pão não apenas encontrou o tesouro, mas também uma arma poderosa que garantiu sua vitória contra o padeiro.</strong>
+        `;
+
+        // Atualiza as opções para incluir o botão de recomeçar
+        document.getElementById('choices').innerHTML = `<button onclick="recomecar()">Recomeçar</button>`;
+    }
+
+    function recomecar() {
+        location.reload();
+    }
+</script>
+
+</body>
+</html>
